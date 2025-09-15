@@ -14,8 +14,14 @@ class ContatosViewModel extends ChangeNotifier{
 
   void carregarContatos() {
     _contatos = [
-      Contato(nome: 'Bruno', relacao: 'Filho', urlImage: ('assets/images/BrunoImg.png')),
-      Contato(nome: 'Aurélia', relacao: 'Esposa', urlImage: ('')),
+      Contato(nome: 'Bruno', relacao: 'Filho'),
+      Contato(nome: 'Aurélia', relacao: 'Esposa'),
+      Contato(nome: 'Nome', relacao: 'Filho'),
+      Contato(nome: 'Nome', relacao: 'Filho'),
+      Contato(nome: 'Nome', relacao: 'Filho'),
+      Contato(nome: 'Nome', relacao: 'Filho'),
+      Contato(nome: 'Nome', relacao: 'Filho'),
+      Contato(nome: 'Nome', relacao: 'Filho'),
       Contato(nome: 'Nome', relacao: 'Filho'),
       Contato(nome: 'Nome', relacao: 'Filho'),
       Contato(nome: 'Nome', relacao: 'Filho'),
