@@ -1,6 +1,3 @@
-// ignore: file_names
-import 'dart:collection';
-
 import 'package:aurelia_app/data/model/Contato.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +41,7 @@ class Teladetalhescontato extends StatelessWidget {
           // espaço vertical restante.
           Expanded(child: _buildInfoContato()),
 
-          _buildBtnLigacao(),
+          // _buildBtnLigacao(),
         ],
       ),
     );

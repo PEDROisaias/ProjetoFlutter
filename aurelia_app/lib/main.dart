@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 void main() {
   // Inicia o app executando o widget raiz 'MeuApp'.
   runApp(const MeuApp());
-}
+} 
 
 // MeuApp é o widget raiz da aplicação, definido como um StatelessWidget pois não tem estado mutável.
 class MeuApp extends StatelessWidget {
