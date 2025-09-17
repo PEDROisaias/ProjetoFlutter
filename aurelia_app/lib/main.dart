@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:aurelia_app/ui/view/TelaContatos.dart';
 import 'package:provider/provider.dart';
 
-// A função main() é o ponto de entrada da aplicação.
+// A função main() é o ponto de entrada da aplicação. 
 void main() {
   // Inicia o app executando o widget raiz 'MeuApp'.
   runApp(const MeuApp());

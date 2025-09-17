@@ -20,19 +20,19 @@ class ContatosViewModel extends ChangeNotifier {
   void carregarContatos() {
     // Popula a lista `_contatos` com dados de exemplo.
     _contatos = [
-      Contato(nome: 'Bruno', relacao: 'Filho'),
-      Contato(nome: 'Aurélia', relacao: 'Esposa'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
-      Contato(nome: 'Nome', relacao: 'Filho'),
+      Contato(nome: 'Bruno', relacao: 'Filho', telefone: '(21) 19999-9999'),
+      Contato(nome: 'Aurélia', relacao: 'Esposa', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
+      Contato(nome: 'Nome', relacao: 'Filho', telefone: ''),
     ];
     // Chama `notifyListeners()` para notificar todos os widgets que estão
     // usando este ViewModel que os dados foram atualizados,
