@@ -28,46 +28,48 @@ class TelaContatosState extends State<TelaContatos> {
 
     // Scaffold é a estrutura padrão da tela que já vem com alguns widgets
     // básicos como AppBar, FloatingActionButton, etc.
-    return Scaffold(
-      backgroundColor: const Color(0xFFF0F2F5), // Cor de fundo da tela.
-
-      // Define que o corpo da tela será uma coluna vertical.
-      body: Column(
-        children: [
-          _buildHeader(), // Chama o método para construir o cabeçalho.
-          // O Expanded faz com que o ListView ocupe todo o espaço restante
-          // na coluna, abaixo do cabeçalho.
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(15),
-              // O `itemCount` define quantos itens a lista terá,
-              // baseado no tamanho da lista de contatos do ViewModel.
-              itemCount: viewModel.contatos.length,
-              itemBuilder: (context, index) {
-                // Pega o contato especifico da lista referente ao item da lista
-                final contato = viewModel.contatos[index];
-                 // Retorna o widget para exibir um item da lista.
-                return _buildContactItem(contato);
-              },
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF0F2F5), // Cor de fundo da tela.
+      
+        // Define que o corpo da tela será uma coluna vertical.
+        body: Column(
+          children: [
+            buildHeader(), // Chama o método para construir o cabeçalho.
+            // O Expanded faz com que o ListView ocupe todo o espaço restante
+            // na coluna, abaixo do cabeçalho.
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(15),
+                // O `itemCount` define quantos itens a lista terá,
+                // baseado no tamanho da lista de contatos do ViewModel.
+                itemCount: viewModel.contatos.length,
+                itemBuilder: (context, index) {
+                  // Pega o contato especifico da lista referente ao item da lista
+                  final contato = viewModel.contatos[index];
+                   // Retorna o widget para exibir um item da lista.
+                  return _buildContactItem(contato);
+                },
+              ),
             ),
-          ),
-        ],
-      ),
-      // Botão flutuante na parte inferior direita.
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {}, // Ação vazia(mas obrigatória).
-        backgroundColor: const Color(0xFF49C2B2),
-        child: const Icon(Icons.psychology, color: Colors.white),
+          ],
+        ),
+        // Botão flutuante na parte inferior direita.
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {}, // Ação vazia(mas obrigatória).
+          backgroundColor: const Color(0xFF49C2B2),
+          child: const Icon(Icons.psychology, color: Colors.white),
+        ),
       ),
     );
   }
 
   // Widget para construir o cabeçalho.
-  Widget _buildHeader() {
+  Widget buildHeader() {
     // Adiciona preenchimento interno
     return Container(
       // Construção do cabeçalho. Define a cor de fundo e o raio dos cantos inferiores.
-      padding: const EdgeInsets.only(top: 50, bottom: 20, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 25, bottom: 20, left: 20, right: 20),
       decoration: const BoxDecoration(
         color: Color(0xFF49C2B2), 
         borderRadius: BorderRadius.only(
