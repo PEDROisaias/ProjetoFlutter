@@ -156,14 +156,20 @@ class TelaContatosState extends State<TelaContatos> {
                 Text(
                   contato.nome,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 20,
+                    fontFamily: 'Quicksand',
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   contato.relacao,
-                  style: const TextStyle(fontSize: 14, color: Colors.blueAccent),
+                  style: const TextStyle(
+                    fontSize: 18, 
+                    color: Color.fromRGBO(64, 211, 182, 1.0),
+                    fontFamily: 'Quicksand',
+                    fontWeight: FontWeight.w500,
+                    ),
                 ),
               ],
             ),
@@ -172,13 +178,19 @@ class TelaContatosState extends State<TelaContatos> {
             // Botão de Ligar
             ElevatedButton.icon(
               onPressed: () {}, // Ação vazia
-              icon: const Icon(Icons.phone, color: Color(0xFF388E3C), size: 18),
+              icon: const Icon(Icons.phone, color: Color.fromRGBO(255, 255, 255, 1), 
+              size: 22,
+              ),
               label: const Text(
                 'Ligar',
-                style: TextStyle(color: Color(0xFF388E3C)),
+                style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1),
+                fontFamily: 'Quicksand',
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                ),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFC8E6C9), // Fundo verde claro
+                backgroundColor: const Color.fromRGBO(81, 230, 144, 1.0), // Fundo verde claro
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),

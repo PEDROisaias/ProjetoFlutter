@@ -12,42 +12,102 @@ class Teladetalhescontato extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Scaffold fornece a estrutura visual básica da tela.
-    return Scaffold(
-      // AppBar é a barra de título na parte superior da tela.
-      appBar: AppBar(
-        title: Text('Contato'),
-         // Define a fonte, tamanho e peso do texto do título.
-        titleTextStyle: TextStyle(
-          fontFamily: 'Quicksand',
-          fontSize: 28,
-          fontWeight: FontWeight.bold,
+    return SafeArea(
+      child: Scaffold(
+        // AppBar é a barra de título na parte superior da tela.
+        appBar: AppBar(
+          title: Text('Contato'),
+          // Define a fonte, tamanho e peso do texto do título.
+          titleTextStyle: TextStyle(
+            fontFamily: 'Quicksand',
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+          // Define a cor da barra de título.
+          backgroundColor: const Color(0xFF49C2B2),
         ),
-        // Define a cor da barra de título.
-        backgroundColor: const Color(0xFF49C2B2),
-      ),
 
-       // O corpo da tela é uma coluna que organiza os widgets verticalmente.
-      // Toda essa parte é da foto do contato
-      body: Column(
-        // Centraliza os widgets horizontalmente.
-        
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // Chama o método para construir o widget que exibe a foto do contato.
-          _buildFotoContato(),
-          // Adiciona um espaço vertical de 20 pixels.
-          const SizedBox(height: 20),
-          // O Expanded faz com que o widget de informações ocupe todo o
-          // espaço vertical restante.
-          Expanded(child: _buildInfoContato()),
+        // O corpo da tela é uma coluna que organiza os widgets verticalmente.
+        // Toda essa parte é da foto do contato
+        body: Column(
+          // Centraliza os widgets horizontalmente.
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Chama o método para construir o widget que exibe a foto do contato.
+            _buildFotoContato(),
+            // Adiciona um espaço vertical de 20 pixels.
+            const SizedBox(height: 20),
+            // O Expanded faz com que o widget de informações ocupe todo o
+            // espaço vertical restante.
+            Expanded(child: _buildInfoContato()),
+            const SizedBox(height: 20),
 
-          // _buildBtnLigacao(),
-        ],
+            // Linha com dois botões: "Ligar" e "Reportar".
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.call,
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    size: 26,
+                  ),
+                  label: const Text(
+                    'Ligar',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Quicksand',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(
+                      81,
+                      230,
+                      144,
+                      1,
+                    ), // Fundo verde claro
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 0, // Sem sombra
+                  ),
+                ),
+                ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.report_problem,
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    size: 26,
+                  ),
+                  label: const Text(
+                    'Emergência',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Quicksand',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(255, 80, 80, 1),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 0, // Sem sombra
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 
-// Widget utilitário para criar um campo de informação formatado.
+  // Widget utilitário para criar um campo de informação formatado.
   Widget _buildInfoField(String text) {
     return Container(
       // Adiciona preenchimento horizontal e vertical.
@@ -62,10 +122,10 @@ class Teladetalhescontato extends StatelessWidget {
     );
   }
 
-// Constrói a seção da foto do contato.
+  // Constrói a seção da foto do contato.
   Widget _buildFotoContato() {
     return Container(
-       // Adiciona uma margem superior para espaçamento.
+      // Adiciona uma margem superior para espaçamento.
       margin: EdgeInsets.only(top: 40),
       // Adiciona preenchimento interno.
       padding: const EdgeInsets.all(8),
@@ -83,6 +143,8 @@ class Teladetalhescontato extends StatelessWidget {
           ),
         ],
       ),
+
+      // Exibe a imagem do contato ou um ícone padrão se a imagem não estiver disponível.
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: contato.urlImage != null
@@ -104,10 +166,10 @@ class Teladetalhescontato extends StatelessWidget {
     );
   }
 
-// Constrói a seção de informações do contato.
+  // Constrói a seção de informações do contato.
   Widget _buildInfoContato() {
     return Container(
-         // Adiciona preenchimento interno e margem horizontal.
+      // Adiciona preenchimento interno e margem horizontal.
       padding: const EdgeInsets.all(20),
       margin: const EdgeInsets.symmetric(horizontal: 20),
       // Adiciona uma cor de fundo, bordas, bordas arredondadas e uma sombra.
@@ -115,8 +177,8 @@ class Teladetalhescontato extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color.fromRGBO(245, 246, 250, 1.0),
-          width: 2,
+          color: const Color.fromRGBO(64, 211, 182, 1.0),
+          width: 3,
         ),
         boxShadow: [
           BoxShadow(
@@ -157,18 +219,6 @@ class Teladetalhescontato extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildBtnLigacao() {
-    return Row(
-      children: [
-        ElevatedButton(style: ElevatedButton.styleFrom(textStyle: TextStyle(fontFamily: 'Quicksand', fontSize: 16, backgroundColor: Color.fromRGBO(144, 238, 144, 1.0))), onPressed: () {  
-
-        }, 
-        child: const Icon(Icons.call), 
-        ),
-      ],
     );
   }
 }
