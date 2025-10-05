@@ -1,7 +1,7 @@
 // Importa o pacote principal do Flutter para usar os widgets do Material Design.
-import 'package:aurelia_app/ui/view_model/ContatosViewModel.dart';
+import 'package:aurelia_app/ui/view/tela_home.dart';
+import 'package:aurelia_app/ui/view_model/contatos_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:aurelia_app/ui/view/TelaContatos.dart';
 import 'package:provider/provider.dart';
 
 // A função main() é o ponto de entrada da aplicação. 
@@ -10,7 +10,7 @@ void main() {
   runApp(const MeuApp());
 } 
 
-// MeuApp é o widget raiz da aplicação, definido como um StatelessWidget pois não tem estado mutável.
+// MeuApp é o widget raiz da aplicação, definido como um StatelessWidget pois não tem estado mutável. 
 class MeuApp extends StatelessWidget {
   const MeuApp({super.key});
 
@@ -27,7 +27,7 @@ class MeuApp extends StatelessWidget {
         // Remove a faixa de "debug" no canto superior direito da tela.
         debugShowCheckedModeBanner: false,
         // Define a tela inicial da aplicação como a `TelaContatos`.
-        home: TelaContatos(),
+        home: TelaHome(),
       ),
     );
   }

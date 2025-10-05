@@ -1,7 +1,8 @@
 // ignore: file_names
-import 'package:aurelia_app/data/model/Contato.dart';
-import 'package:aurelia_app/ui/view/TelaDetalhesContato.dart';
-import 'package:aurelia_app/ui/view_model/ContatosViewModel.dart';
+import 'package:aurelia_app/data/model/contato.dart';
+import 'package:aurelia_app/ui/view/tela_detalhes_contato.dart';
+import 'package:aurelia_app/ui/view/tela_home.dart';
+import 'package:aurelia_app/ui/view_model/contatos_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -57,30 +58,41 @@ class TelaContatosState extends State<TelaContatos> {
         // Botão flutuante na parte inferior direita.
         floatingActionButton: FloatingActionButton(
           onPressed: () {}, // Ação vazia(mas obrigatória).
-          backgroundColor: const Color(0xFF49C2B2),
-          child: const Icon(Icons.psychology, color: Colors.white),
+          backgroundColor: const Color.fromRGBO(64, 211, 182, 1.0),
+          child: Image.asset('assets/images/aurelia_logo_bg_transparent.png'),
         ),
       ),
     );
   }
+
+  // -----------------------------------------------------------------------------------------------------------------
 
   // Widget para construir o cabeçalho.
   Widget buildHeader() {
     // Adiciona preenchimento interno
     return Container(
       // Construção do cabeçalho. Define a cor de fundo e o raio dos cantos inferiores.
-      padding: const EdgeInsets.only(top: 25, bottom: 20, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 25, bottom: 20, left: 10, right: 20),
       decoration: const BoxDecoration(
-        color: Color(0xFF49C2B2), 
+        color: Color.fromRGBO(64, 211, 182, 1.0),
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
+          bottomLeft: Radius.circular(14),
+          bottomRight: Radius.circular(14),
         ),
       ),
       child: Row(
         // Alinha os elementos do cabeçalho nas extremidades.
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
+            onPressed: () {
+              Navigator.pop(context,
+              MaterialPageRoute(builder: (context) => const TelaHome())
+              ); // Volta para a tela anterior ao pressionar o botão.
+            },
+          ),
+          const SizedBox(width: 20),
           // Texto do título.
           Text(
             'Contatos',
@@ -88,14 +100,21 @@ class TelaContatosState extends State<TelaContatos> {
               color: Colors.white,
               fontSize: 28,
               fontWeight: FontWeight.bold,
+              fontFamily: 'Quicksand',
             ),
           ),
+          const Spacer(),
           // Ícone de adicionar contato.
-          Icon(Icons.add, color: Colors.white, size: 32),
+          Icon(Icons.add, 
+          color: Colors.white, 
+          size: 32,
+          ),
         ],
       ),
     );
   }
+
+  // -----------------------------------------------------------------------------------------------------------------
 
   // Widget para construir um único item da lista.
   Widget _buildContactItem(Contato contato) {

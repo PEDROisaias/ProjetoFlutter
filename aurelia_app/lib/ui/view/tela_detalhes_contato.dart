@@ -1,4 +1,5 @@
-import 'package:aurelia_app/data/model/Contato.dart';
+import 'package:aurelia_app/data/model/contato.dart';
+import 'package:aurelia_app/ui/view/tela_contatos.dart';
 import 'package:flutter/material.dart';
 
 // Este widget não tem estado mutável, então é um StatelessWidget.
@@ -14,33 +15,22 @@ class Teladetalhescontato extends StatelessWidget {
     // Scaffold fornece a estrutura visual básica da tela.
     return SafeArea(
       child: Scaffold(
-        // AppBar é a barra de título na parte superior da tela.
-        appBar: AppBar(
-          title: Text('Contato'),
-          // Define a fonte, tamanho e peso do texto do título.
-          titleTextStyle: TextStyle(
-            fontFamily: 'Quicksand',
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-          ),
-          // Define a cor da barra de título.
-          backgroundColor: const Color(0xFF49C2B2),
-        ),
-
+        backgroundColor: const Color(0xFFF0F2F5),
         // O corpo da tela é uma coluna que organiza os widgets verticalmente.
         // Toda essa parte é da foto do contato
         body: Column(
           // Centraliza os widgets horizontalmente.
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            _buildHeader(context),
             // Chama o método para construir o widget que exibe a foto do contato.
             _buildFotoContato(),
             // Adiciona um espaço vertical de 20 pixels.
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
             // O Expanded faz com que o widget de informações ocupe todo o
             // espaço vertical restante.
             Expanded(child: _buildInfoContato()),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
 
             // Linha com dois botões: "Ligar" e "Reportar".
             Row(
@@ -73,6 +63,10 @@ class Teladetalhescontato extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     elevation: 0, // Sem sombra
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
                   ),
                 ),
                 ElevatedButton.icon(
@@ -96,16 +90,23 @@ class Teladetalhescontato extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
                     elevation: 0, // Sem sombra
                   ),
                 ),
               ],
             ),
+            const SizedBox(height: 25), // Espaçamento inferior
           ],
         ),
       ),
     );
   }
+
+  // -------------------------------------------------------------------------------------------------------
 
   // Widget utilitário para criar um campo de informação formatado.
   Widget _buildInfoField(String text) {
@@ -122,11 +123,13 @@ class Teladetalhescontato extends StatelessWidget {
     );
   }
 
+  // -------------------------------------------------------------------------------------------------------
+
   // Constrói a seção da foto do contato.
   Widget _buildFotoContato() {
     return Container(
       // Adiciona uma margem superior para espaçamento.
-      margin: EdgeInsets.only(top: 40),
+      margin: EdgeInsets.only(top: 30),
       // Adiciona preenchimento interno.
       padding: const EdgeInsets.all(8),
       // Adiciona cor de fundo, bordas arredondadas e uma sombra.
@@ -165,6 +168,8 @@ class Teladetalhescontato extends StatelessWidget {
       ),
     );
   }
+
+  // -------------------------------------------------------------------------------------------------------
 
   // Constrói a seção de informações do contato.
   Widget _buildInfoContato() {
@@ -216,6 +221,56 @@ class Teladetalhescontato extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Icon(Icons.edit, color: Color.fromRGBO(18, 18, 18, 0.8)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // -----------------------------------------------------------------------------------------------
+
+  Widget _buildHeader(BuildContext context) {
+    // Adiciona preenchimento interno
+    return Container(
+      // Construção do cabeçalho. Define a cor de fundo e o raio dos cantos inferiores.
+      padding: const EdgeInsets.only(top: 15, bottom: 20, left: 10),
+      decoration: const BoxDecoration(
+        color: Color.fromRGBO(64, 211, 182, 1.0),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(14),
+          bottomRight: Radius.circular(14),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          // Botão de voltar
+          IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
+            onPressed: () {
+              Navigator.pop(
+                context,
+                MaterialPageRoute(builder: (context) => TelaContatos()),
+              );
+            },
+          ),
+          // Título do cabeçalho
+          const SizedBox(width: 8),
+          const Text(
+            'Detalhes do Contato',
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Quicksand',
+              fontWeight: FontWeight.bold,
+              fontSize: 26,
+            ),
+          ),
+          const Spacer(),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert, 
+            color: Colors.white, 
+            size: 26),
           ),
         ],
       ),

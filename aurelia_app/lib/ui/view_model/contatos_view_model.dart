@@ -1,5 +1,5 @@
 // ignore: file_names
-import 'package:aurelia_app/data/model/Contato.dart';
+import 'package:aurelia_app/data/model/contato.dart';
 import 'package:flutter/material.dart';
 
 // O ViewModel gerencia a lógica de negócio e os dados para a View.
