@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:aurelia_app/data/model/contato.dart';
+import 'package:aurelia_app/ui/core/app_theme.dart';
 import 'package:aurelia_app/ui/view/tela_detalhes_contato.dart';
 import 'package:aurelia_app/ui/view/tela_home.dart';
 import 'package:aurelia_app/ui/view_model/contatos_view_model.dart';
@@ -58,7 +59,7 @@ class TelaContatosState extends State<TelaContatos> {
         // Botão flutuante na parte inferior direita.
         floatingActionButton: FloatingActionButton(
           onPressed: () {}, // Ação vazia(mas obrigatória).
-          backgroundColor: const Color.fromRGBO(64, 211, 182, 1.0),
+          backgroundColor: AppTheme.primaryColor,
           child: Image.asset('assets/images/aurelia_logo_bg_transparent.png'),
         ),
       ),
@@ -74,7 +75,7 @@ class TelaContatosState extends State<TelaContatos> {
       // Construção do cabeçalho. Define a cor de fundo e o raio dos cantos inferiores.
       padding: const EdgeInsets.only(top: 25, bottom: 20, left: 10, right: 20),
       decoration: const BoxDecoration(
-        color: Color.fromRGBO(64, 211, 182, 1.0),
+        color: AppTheme.primaryColor,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(14),
           bottomRight: Radius.circular(14),
@@ -159,7 +160,7 @@ class TelaContatosState extends State<TelaContatos> {
                   : Container(
                       width: 60,
                       height: 60,
-                      color: const Color(0xFF49C2B2),
+                      color: AppTheme.primaryColor,
                       child: const Icon(
                         Icons.person,
                         color: Colors.white,
@@ -185,7 +186,7 @@ class TelaContatosState extends State<TelaContatos> {
                   contato.relacao,
                   style: const TextStyle(
                     fontSize: 18, 
-                    color: Color.fromRGBO(64, 211, 182, 1.0),
+                    color: AppTheme.primaryColor,
                     fontFamily: 'Quicksand',
                     fontWeight: FontWeight.w500,
                     ),

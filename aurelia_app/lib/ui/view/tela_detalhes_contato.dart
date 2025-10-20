@@ -1,4 +1,5 @@
 import 'package:aurelia_app/data/model/contato.dart';
+import 'package:aurelia_app/ui/core/app_theme.dart';
 import 'package:aurelia_app/ui/view/tela_contatos.dart';
 import 'package:flutter/material.dart';
 
@@ -53,12 +54,7 @@ class Teladetalhescontato extends StatelessWidget {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(
-                      81,
-                      230,
-                      144,
-                      1,
-                    ), // Fundo verde claro
+                    backgroundColor: const Color.fromRGBO(81, 230, 144, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -71,10 +67,10 @@ class Teladetalhescontato extends StatelessWidget {
                 ),
                 ElevatedButton.icon(
                   onPressed: () {},
-                  icon: const Icon(
-                    Icons.report_problem,
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    size: 26,
+                  icon: Image.asset(
+                    'assets/images/icone_emergencia.png',
+                    width: 26,
+                    height: 26,
                   ),
                   label: const Text(
                     'Emergência',
@@ -182,7 +178,7 @@ class Teladetalhescontato extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color.fromRGBO(64, 211, 182, 1.0),
+          color: AppTheme.primaryColor,
           width: 3,
         ),
         boxShadow: [
@@ -203,7 +199,7 @@ class Teladetalhescontato extends StatelessWidget {
             contato.nome,
             // Estiliza o texto do nome do contato.
             style: TextStyle(
-              color: const Color.fromRGBO(64, 211, 182, 1.0),
+              color: AppTheme.primaryColor,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold,
               fontSize: 20,
@@ -235,7 +231,7 @@ class Teladetalhescontato extends StatelessWidget {
       // Construção do cabeçalho. Define a cor de fundo e o raio dos cantos inferiores.
       padding: const EdgeInsets.only(top: 15, bottom: 20, left: 10),
       decoration: const BoxDecoration(
-        color: Color.fromRGBO(64, 211, 182, 1.0),
+        color: AppTheme.primaryColor,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(14),
           bottomRight: Radius.circular(14),
@@ -268,9 +264,7 @@ class Teladetalhescontato extends StatelessWidget {
           const Spacer(),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.more_vert, 
-            color: Colors.white, 
-            size: 26),
+            icon: const Icon(Icons.more_vert, color: Colors.white, size: 26),
           ),
         ],
       ),

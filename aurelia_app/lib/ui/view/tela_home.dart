@@ -1,4 +1,6 @@
+import 'package:aurelia_app/ui/core/app_theme.dart';
 import 'package:aurelia_app/ui/view/tela_contatos.dart';
+import 'package:aurelia_app/ui/view/tela_lembretes.dart';
 import 'package:flutter/material.dart';
 
 class TelaHome extends StatefulWidget {
@@ -26,7 +28,7 @@ class TelaHomeState extends State<TelaHome> {
             Center(child: buildContainerButtons()),
             Divider(
               height: 25,
-              color: Color.fromRGBO(64, 211, 182, 1.0),
+              color: AppTheme.primaryColor,
               thickness: 2.5,
               indent: 30,
               endIndent: 30,
@@ -37,7 +39,7 @@ class TelaHomeState extends State<TelaHome> {
                 fontFamily: 'Quicksand',
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(64, 211, 182, 1.0),
+                color: AppTheme.primaryColor,
               ),
             ),
             const SizedBox(height: 4),
@@ -62,7 +64,7 @@ class TelaHomeState extends State<TelaHome> {
     return Container(
       padding: const EdgeInsets.only(top: 15, bottom: 20, left: 100),
       decoration: const BoxDecoration(
-        color: Color.fromRGBO(64, 211, 182, 1.0),
+        color: AppTheme.primaryColor,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
@@ -126,7 +128,7 @@ class TelaHomeState extends State<TelaHome> {
             'Tarefas de Hoje',
             style: TextStyle(
               fontSize: 20,
-              color: Color.fromRGBO(64, 211, 182, 1.0),
+              color: AppTheme.primaryColor,
               fontWeight: FontWeight.bold,
               fontFamily: 'Quicksand',
             ),
@@ -176,7 +178,12 @@ class TelaHomeState extends State<TelaHome> {
             Column(
               children: [
                 InkWell(
-                  onTap: () => {},
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TelaLembretes()),
+                    )
+                  },
                   child: Container(
                     margin: const EdgeInsets.only(top: 20, right: 10),
                     width: 135,
@@ -334,5 +341,5 @@ class TelaHomeState extends State<TelaHome> {
     );
   }
 
-  // -----------------------------------------------------------------------------------------------------------------
+
 }
