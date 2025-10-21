@@ -62,7 +62,7 @@ class TelaHomeState extends State<TelaHome> {
 
   Widget buildHeader() {
     return Container(
-      padding: const EdgeInsets.only(top: 15, bottom: 20, left: 100),
+      padding: const EdgeInsets.only(top: 15, bottom: 10, left: 100),
       decoration: const BoxDecoration(
         color: AppTheme.primaryColor,
         borderRadius: BorderRadius.only(
@@ -77,7 +77,7 @@ class TelaHomeState extends State<TelaHome> {
               const Text(
                 'Olá, Usuário!',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppTheme.lightTextColor,
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Quicksand',
@@ -86,7 +86,7 @@ class TelaHomeState extends State<TelaHome> {
               const Text(
                 'Como você está hoje?',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppTheme.lightTextColor,
                   fontSize: 18,
                   fontFamily: 'Quicksand',
                 ),
@@ -107,12 +107,12 @@ class TelaHomeState extends State<TelaHome> {
       height: 180,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Color.fromRGBO(255, 255, 255, 1),
+        color: AppTheme.lightColor,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             // ignore: deprecated_member_use
-            color: Colors.grey.withOpacity(0.3),
+            color: AppTheme.lightGrayColor,
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3), // changes position of shadow
@@ -167,8 +167,9 @@ class TelaHomeState extends State<TelaHome> {
     );
   }
 
-  // -----------------------------------------------------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------------------------------------------
+ 
+  // Widget para construir o container de botões
   Widget buildContainerButtons() {
     return Column(
       children: [
@@ -177,6 +178,8 @@ class TelaHomeState extends State<TelaHome> {
           children: [
             Column(
               children: [
+
+                // Lembretes Button
                 InkWell(
                   onTap: () => {
                     Navigator.push(
@@ -198,14 +201,14 @@ class TelaHomeState extends State<TelaHome> {
                         Icon(
                           Icons.alarm,
                           size: 70,
-                          color: Color.fromRGBO(255, 255, 255, 1),
+                          color: AppTheme.lightColor,
                         ),
                         SizedBox(height: 10),
                         Text(
                           'Lembretes',
                           style: TextStyle(
                             fontSize: 18,
-                            color: Color.fromRGBO(255, 255, 255, 1),
+                            color: AppTheme.lightTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Quicksand',
                           ),
@@ -218,6 +221,8 @@ class TelaHomeState extends State<TelaHome> {
             ),
             Column(
               children: [
+
+                // Contatos Button
                 InkWell(
                   onTap: () => {
                     Navigator.push(
@@ -239,14 +244,14 @@ class TelaHomeState extends State<TelaHome> {
                         Icon(
                           Icons.phone,
                           size: 70,
-                          color: Color.fromRGBO(255, 255, 255, 1),
+                          color: AppTheme.lightColor,
                         ),
                         SizedBox(height: 10),
                         Text(
                           'Contatos',
                           style: TextStyle(
                             fontSize: 18,
-                            color: Color.fromRGBO(255, 255, 255, 1),
+                            color: AppTheme.lightTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Quicksand',
                           ),
@@ -264,6 +269,8 @@ class TelaHomeState extends State<TelaHome> {
           children: [
             Column(
               children: [
+
+                // Medicamentos Button
                 InkWell(
                   onTap: () => {},
                   child: Container(
@@ -287,7 +294,7 @@ class TelaHomeState extends State<TelaHome> {
                           'Medicamentos',
                           style: TextStyle(
                             fontSize: 18,
-                            color: Color.fromRGBO(255, 255, 255, 1),
+                            color: AppTheme.lightTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Quicksand',
                           ),
@@ -299,6 +306,7 @@ class TelaHomeState extends State<TelaHome> {
               ],
             ),
 
+          // Games Button
             Column(
               children: [
                 InkWell(
@@ -317,14 +325,14 @@ class TelaHomeState extends State<TelaHome> {
                         Icon(
                           Icons.games_rounded,
                           size: 70,
-                          color: Color.fromRGBO(255, 255, 255, 1),
+                          color: AppTheme.lightColor,
                         ),
                         SizedBox(height: 10),
                         Text(
                           'Jogos',
                           style: TextStyle(
                             fontSize: 18,
-                            color: Color.fromRGBO(255, 255, 255, 1),
+                            color: AppTheme.lightTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Quicksand',
                           ),

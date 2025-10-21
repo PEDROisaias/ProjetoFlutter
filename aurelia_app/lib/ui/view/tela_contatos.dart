@@ -7,15 +7,12 @@ import 'package:aurelia_app/ui/view_model/contatos_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// O widget principal que constrói a nossa tela.
-// É um StatefulWidget porque seu estado pode mudar (embora a lógica de dados
-// seja gerenciada pelo ViewModel).
 class TelaContatos extends StatefulWidget {
   const TelaContatos({super.key});
 
   @override
   State<TelaContatos> createState() {
-    // Cria o estado para este widget.
+
     return TelaContatosState();
   }
 }
@@ -23,28 +20,19 @@ class TelaContatos extends StatefulWidget {
 class TelaContatosState extends State<TelaContatos> {
   @override
   Widget build(BuildContext context) {
-    // Acessa a instância da ViewModel usando Provider.of.
-    // O `listen: true` (padrão) garante que este widget será reconstruído
-    // sempre que o notifyListeners() for chamado no ViewModel.
+
     final viewModel = Provider.of<ContatosViewModel>(context);
 
-    // Scaffold é a estrutura padrão da tela que já vem com alguns widgets
-    // básicos como AppBar, FloatingActionButton, etc.
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFF0F2F5), // Cor de fundo da tela.
+        backgroundColor: AppTheme.lightColor,
       
-        // Define que o corpo da tela será uma coluna vertical.
         body: Column(
           children: [
-            buildHeader(), // Chama o método para construir o cabeçalho.
-            // O Expanded faz com que o ListView ocupe todo o espaço restante
-            // na coluna, abaixo do cabeçalho.
+            buildHeader(), 
             Expanded(
               child: ListView.builder(
                 padding: const EdgeInsets.all(15),
-                // O `itemCount` define quantos itens a lista terá,
-                // baseado no tamanho da lista de contatos do ViewModel.
                 itemCount: viewModel.contatos.length,
                 itemBuilder: (context, index) {
                   // Pega o contato especifico da lista referente ao item da lista
@@ -56,9 +44,8 @@ class TelaContatosState extends State<TelaContatos> {
             ),
           ],
         ),
-        // Botão flutuante na parte inferior direita.
         floatingActionButton: FloatingActionButton(
-          onPressed: () {}, // Ação vazia(mas obrigatória).
+          onPressed: () {}, 
           backgroundColor: AppTheme.primaryColor,
           child: Image.asset('assets/images/aurelia_logo_bg_transparent.png'),
         ),
@@ -70,15 +57,14 @@ class TelaContatosState extends State<TelaContatos> {
 
   // Widget para construir o cabeçalho.
   Widget buildHeader() {
-    // Adiciona preenchimento interno
     return Container(
       // Construção do cabeçalho. Define a cor de fundo e o raio dos cantos inferiores.
       padding: const EdgeInsets.only(top: 25, bottom: 20, left: 10, right: 20),
       decoration: const BoxDecoration(
         color: AppTheme.primaryColor,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(14),
-          bottomRight: Radius.circular(14),
+          bottomLeft: Radius.circular(12),
+          bottomRight: Radius.circular(12),
         ),
       ),
       child: Row(
@@ -86,7 +72,7 @@ class TelaContatosState extends State<TelaContatos> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
+            icon: const Icon(Icons.arrow_back, color: AppTheme.lightColor, size: 28),
             onPressed: () {
               Navigator.pop(context,
               MaterialPageRoute(builder: (context) => const TelaHome())
@@ -98,7 +84,7 @@ class TelaContatosState extends State<TelaContatos> {
           Text(
             'Contatos',
             style: TextStyle(
-              color: Colors.white,
+              color: AppTheme.lightTextColor,
               fontSize: 28,
               fontWeight: FontWeight.bold,
               fontFamily: 'Quicksand',
@@ -107,7 +93,7 @@ class TelaContatosState extends State<TelaContatos> {
           const Spacer(),
           // Ícone de adicionar contato.
           Icon(Icons.add, 
-          color: Colors.white, 
+          color: AppTheme.lightColor, 
           size: 32,
           ),
         ],
@@ -119,24 +105,23 @@ class TelaContatosState extends State<TelaContatos> {
 
   // Widget para construir um único item da lista.
   Widget _buildContactItem(Contato contato) {
-    // `InkWell` torna o contêiner clicável e adiciona um efeito visual.
     return InkWell(
       onTap: () {
         // Navega para a tela de detalhes quando o item é clicado,
         // passando o objeto `contato` como argumento.
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Teladetalhescontato(contato: contato)));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TelaDetalhesContato(contato: contato)));
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppTheme.lightColor,
           borderRadius: BorderRadius.circular(20),
            // Adiciona uma sombra para dar um efeito de elevação.
           boxShadow: [
             BoxShadow(
               // ignore: deprecated_member_use
-              color: Colors.grey.withOpacity(0.1),
+              color: AppTheme.lightGrayColor,
               spreadRadius: 1,
               blurRadius: 5,
               offset: const Offset(0, 3),
@@ -163,7 +148,7 @@ class TelaContatosState extends State<TelaContatos> {
                       color: AppTheme.primaryColor,
                       child: const Icon(
                         Icons.person,
-                        color: Colors.white,
+                        color: AppTheme.lightColor,
                         size: 40,
                       ),
                     ),
@@ -198,21 +183,22 @@ class TelaContatosState extends State<TelaContatos> {
             // Botão de Ligar
             ElevatedButton.icon(
               onPressed: () {}, // Ação vazia
-              icon: const Icon(Icons.phone, color: Color.fromRGBO(255, 255, 255, 1), 
+              icon: const Icon(Icons.phone, color: AppTheme.lightColor, 
               size: 22,
               ),
               label: const Text(
                 'Ligar',
-                style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1),
+                style: TextStyle(color: AppTheme.lightTextColor,
                 fontFamily: 'Quicksand',
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
                 ),
               ),
               style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 backgroundColor: const Color.fromRGBO(81, 230, 144, 1.0), // Fundo verde claro
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 elevation: 0, // Sem sombra
               ),

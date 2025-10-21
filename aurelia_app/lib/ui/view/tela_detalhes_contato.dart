@@ -4,19 +4,19 @@ import 'package:aurelia_app/ui/view/tela_contatos.dart';
 import 'package:flutter/material.dart';
 
 // Este widget não tem estado mutável, então é um StatelessWidget.
-class Teladetalhescontato extends StatelessWidget {
+class TelaDetalhesContato extends StatelessWidget {
   // A propriedade `contato` é obrigatória, garantindo que a tela sempre
   // receba um objeto Contato para exibir.
   final Contato contato;
 
-  const Teladetalhescontato({super.key, required this.contato});
+  const TelaDetalhesContato({super.key, required this.contato});
 
   @override
   Widget build(BuildContext context) {
     // Scaffold fornece a estrutura visual básica da tela.
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFF0F2F5),
+        backgroundColor: AppTheme.lightColor,
         // O corpo da tela é uma coluna que organiza os widgets verticalmente.
         // Toda essa parte é da foto do contato
         body: Column(
@@ -41,13 +41,13 @@ class Teladetalhescontato extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(
                     Icons.call,
-                    color: Color.fromRGBO(255, 255, 255, 1),
+                    color: AppTheme.lightColor,
                     size: 26,
                   ),
                   label: const Text(
                     'Ligar',
                     style: TextStyle(
-                      color: Color.fromRGBO(255, 255, 255, 1),
+                      color: AppTheme.lightTextColor,
                       fontFamily: 'Quicksand',
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -75,7 +75,7 @@ class Teladetalhescontato extends StatelessWidget {
                   label: const Text(
                     'Emergência',
                     style: TextStyle(
-                      color: Color.fromRGBO(255, 255, 255, 1),
+                      color: AppTheme.lightTextColor,
                       fontFamily: 'Quicksand',
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -111,11 +111,14 @@ class Teladetalhescontato extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       // Adiciona uma cor de fundo cinza e bordas arredondadas.
       decoration: BoxDecoration(
-        color: Colors.grey[200], // Cor de fundo cinza
+        color: AppTheme.lightGrayColor, // Cor de fundo cinza
         borderRadius: BorderRadius.circular(10),
       ),
       // Exibe o texto com um estilo de fonte específico.
-      child: Text(text, style: TextStyle(fontSize: 16)),
+      child: Text(
+        text,
+        style: TextStyle(fontSize: 16)
+        ),
     );
   }
 
@@ -130,12 +133,12 @@ class Teladetalhescontato extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       // Adiciona cor de fundo, bordas arredondadas e uma sombra.
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.lightColor,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             // ignore: deprecated_member_use
-            color: const Color.fromARGB(255, 73, 6, 6).withOpacity(0.1),
+            color: AppTheme.lightGrayColor,
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),
@@ -158,7 +161,7 @@ class Teladetalhescontato extends StatelessWidget {
             : Container(
                 width: 170,
                 height: 170,
-                color: const Color(0xFF49C2B2),
+                color: AppTheme.primaryColor,
                 child: const Icon(Icons.person, color: Colors.white, size: 40),
               ),
       ),
@@ -175,7 +178,7 @@ class Teladetalhescontato extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20),
       // Adiciona uma cor de fundo, bordas, bordas arredondadas e uma sombra.
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.lightColor,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: AppTheme.primaryColor,
@@ -184,7 +187,7 @@ class Teladetalhescontato extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             // ignore: deprecated_member_use
-            color: const Color.fromARGB(255, 73, 6, 6).withOpacity(0.1),
+            color: AppTheme.lightGrayColor,
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),
@@ -242,7 +245,7 @@ class Teladetalhescontato extends StatelessWidget {
         children: [
           // Botão de voltar
           IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
+            icon: const Icon(Icons.arrow_back, color: AppTheme.lightColor, size: 28),
             onPressed: () {
               Navigator.pop(
                 context,
@@ -255,7 +258,7 @@ class Teladetalhescontato extends StatelessWidget {
           const Text(
             'Detalhes do Contato',
             style: TextStyle(
-              color: Colors.white,
+              color: AppTheme.lightTextColor,
               fontFamily: 'Quicksand',
               fontWeight: FontWeight.bold,
               fontSize: 26,
@@ -264,7 +267,7 @@ class Teladetalhescontato extends StatelessWidget {
           const Spacer(),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.more_vert, color: Colors.white, size: 26),
+            icon: const Icon(Icons.more_vert, color: AppTheme.lightColor, size: 26),
           ),
         ],
       ),

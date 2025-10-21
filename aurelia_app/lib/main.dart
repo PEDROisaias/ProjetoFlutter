@@ -1,6 +1,19 @@
 // Importa o pacote principal do Flutter para usar os widgets do Material Design.
+import 'package:aurelia_app/data/model/contato.dart';
+import 'package:aurelia_app/ui/core/app_theme.dart';
 import 'package:aurelia_app/ui/view/tela_home.dart';
+import 'package:aurelia_app/ui/view/tela_contatos.dart';
+import 'package:aurelia_app/ui/view/tela_detalhes_contato.dart';
+import 'package:aurelia_app/ui/view/tela_lembretes.dart';
+// Importa os ViewModels para gerenciar o estado da aplicação.
+import 'package:aurelia_app/ui/view_model/auth_view_model.dart';
 import 'package:aurelia_app/ui/view_model/contatos_view_model.dart';
+// Importa as telas de autenticacçãp
+import 'package:aurelia_app/ui/view/tela_login.dart';
+import 'package:aurelia_app/ui/view/tela_cadastro.dart';
+import 'package:aurelia_app/ui/view/tela_splash.dart';
+import 'package:aurelia_app/ui/view/tela_welcome.dart';
+// 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,19 +29,33 @@ class MeuApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Retorna um ChangeNotifierProvider que disponibiliza o ContatosViewModel
-    // para toda a árvore de widgets abaixo. Isso permite que outros widgets
-    // acessem e reajam a mudanças nos dados do ViewModel.
-    return ChangeNotifierProvider(
-      // A função `create` é chamada para criar uma instância do ViewModel.
-      create: (context) => ContatosViewModel(),
-      // O `child` do provider é o widget principal da aplicação.
-      child: const MaterialApp(
-        // Remove a faixa de "debug" no canto superior direito da tela.
+
+    return MultiProvider(
+      providers: [
+        // Adiciona os ViewModels como providers para gerenciar o estado da aplicação.
+        ChangeNotifierProvider(create: (_) => AuthViewModel()),
+        ChangeNotifierProvider(create: (_) => ContatosViewModel()),
+
+      ],
+      child: MaterialApp(
+        title: 'Aurélia',
         debugShowCheckedModeBanner: false,
-        // Define a tela inicial da aplicação como a `TelaContatos`.
-        home: TelaHome(),
+        theme: AppTheme.lightTheme,
+
+        initialRoute: '/splash',
+
+        routes: {
+          '/splash': (context) => const TelaSplash(),
+          '/welcome': (context) => const TelaWelcome(),
+          '/login': (context) => const TelaLogin(),
+          '/cadastro': (context) => const TelaCadastro(),
+          
+          '/home': (context) => const TelaHome(),
+          '/contatos': (context) => const TelaContatos(),
+          '/lembretes': (context) => const TelaLembretes(),
+        },
       ),
     );
   }
 }
+

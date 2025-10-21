@@ -16,7 +16,7 @@ class TelaLembretesState extends State<TelaLembretes> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFF0F2F5),
+        backgroundColor: AppTheme.lightColor,
         body: Column(
           children: [
             buildHeader(),
@@ -55,12 +55,12 @@ class TelaLembretesState extends State<TelaLembretes> {
 // Cabeçalho da tela com título e botão de navegação.
  Widget buildHeader() {
     return Container(
-      padding: const EdgeInsets.only(top: 15, bottom: 20, left: 50),
+      padding: const EdgeInsets.only(top: 25, bottom: 20, left: 10, right: 20),
       decoration: const BoxDecoration(
         color: AppTheme.primaryColor,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(12),
+          bottomRight: Radius.circular(12),
         ),
       ),
       child: Row(
@@ -73,26 +73,18 @@ class TelaLembretesState extends State<TelaLembretes> {
                 MaterialPageRoute(builder: (context) => TelaHome()),
                   );
                 },
-                 icon: const Icon(Icons.arrow_back, color: Colors.white, size: 26
+                 icon: const Icon(Icons.arrow_back, color: AppTheme.lightColor, size: 28
                  ),
               ),
               const SizedBox(width: 20),
           Column(
             children: [
-              const Text(
-                'Olá, Usuário!',
+               Text(
+                'Lembretes',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 26,
+                  color: AppTheme.lightTextColor,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Quicksand',
-                ),
-              ),
-              const Text(
-                'Como você está hoje?',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
                   fontFamily: 'Quicksand',
                 ),
               ),
