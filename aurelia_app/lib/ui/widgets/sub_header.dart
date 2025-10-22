@@ -10,9 +10,16 @@ class SubHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppTheme.primaryColor,
       elevation: 0,
       centerTitle: true,
+      toolbarHeight: 90,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(12),
+          bottomRight: Radius.circular(12),
+        ),
+      ),
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
         icon: const Icon(Icons.arrow_back, color: AppTheme.lightColor),
@@ -21,6 +28,7 @@ class SubHeader extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: Theme.of(context).textTheme.titleLarge?.copyWith(
           color: AppTheme.lightTextColor,
+          fontSize: 28,
         ),
       ),
       actions: actions,

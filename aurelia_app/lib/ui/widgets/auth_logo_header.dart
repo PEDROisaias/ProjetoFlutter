@@ -7,10 +7,10 @@ class AuthLogoHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset('assets/images/aurelia_logo_auth.png', height: 100),
+        Image.asset('assets/images/aurelia_logo_auth.png'),
         const SizedBox(height: 16),
-        Text('AURÉLIA', style: Theme.of(context).textTheme.headlineLarge
-        ),
+        // Text('AURÉLIA', style: Theme.of(context).textTheme.headlineLarge
+        // ),
       ],
     );
   }

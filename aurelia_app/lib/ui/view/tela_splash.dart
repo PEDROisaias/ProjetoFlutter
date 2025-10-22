@@ -31,7 +31,7 @@ class _TelaSplashState extends State<TelaSplash>
 
     Timer(const Duration(seconds: 3), () {
       if (mounted) {
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacementNamed(context, '/login');
       }
     });
   }

@@ -1,5 +1,6 @@
 import 'package:aurelia_app/ui/core/app_theme.dart';
 import 'package:aurelia_app/ui/view/tela_contatos.dart';
+import 'package:aurelia_app/ui/view/tela_jogos.dart';
 import 'package:aurelia_app/ui/view/tela_lembretes.dart';
 import 'package:flutter/material.dart';
 
@@ -167,8 +168,8 @@ class TelaHomeState extends State<TelaHome> {
     );
   }
 
-// -----------------------------------------------------------------------------------------------------------------
- 
+  // -----------------------------------------------------------------------------------------------------------------
+
   // Widget para construir o container de botões
   Widget buildContainerButtons() {
     return Column(
@@ -178,14 +179,13 @@ class TelaHomeState extends State<TelaHome> {
           children: [
             Column(
               children: [
-
                 // Lembretes Button
                 InkWell(
                   onTap: () => {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => TelaLembretes()),
-                    )
+                    ),
                   },
                   child: Container(
                     margin: const EdgeInsets.only(top: 20, right: 10),
@@ -198,11 +198,7 @@ class TelaHomeState extends State<TelaHome> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.alarm,
-                          size: 70,
-                          color: AppTheme.lightColor,
-                        ),
+                        Icon(Icons.alarm, size: 70, color: AppTheme.lightColor),
                         SizedBox(height: 10),
                         Text(
                           'Lembretes',
@@ -221,7 +217,6 @@ class TelaHomeState extends State<TelaHome> {
             ),
             Column(
               children: [
-
                 // Contatos Button
                 InkWell(
                   onTap: () => {
@@ -241,11 +236,7 @@ class TelaHomeState extends State<TelaHome> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.phone,
-                          size: 70,
-                          color: AppTheme.lightColor,
-                        ),
+                        Icon(Icons.phone, size: 70, color: AppTheme.lightColor),
                         SizedBox(height: 10),
                         Text(
                           'Contatos',
@@ -269,7 +260,6 @@ class TelaHomeState extends State<TelaHome> {
           children: [
             Column(
               children: [
-
                 // Medicamentos Button
                 InkWell(
                   onTap: () => {},
@@ -306,11 +296,16 @@ class TelaHomeState extends State<TelaHome> {
               ],
             ),
 
-          // Games Button
+            // Games Button
             Column(
               children: [
                 InkWell(
-                  onTap: () => {},
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TelaJogos()),
+                    ),
+                    },
                   child: Container(
                     margin: const EdgeInsets.only(top: 20, left: 10),
                     width: 135,
@@ -348,6 +343,4 @@ class TelaHomeState extends State<TelaHome> {
       ],
     );
   }
-
-
 }

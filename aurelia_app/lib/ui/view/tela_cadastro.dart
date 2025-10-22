@@ -49,16 +49,23 @@ class _TelaCadastroState extends State<TelaCadastro> {
     }
   }
 
-  void _submitRegister(AuthViewModel viewModel) {
+  // void _submitRegister(AuthViewModel viewModel) {
+  //   if (_formKey.currentState?.validate() ?? false) {
+  //     viewModel.register(
+  //       nome: _nameController.text,
+  //       email: _emailController.text,
+  //       password: _passwordController.text,
+  //       dob: _dateOfBirthController.text,
+  //       phone: _phoneController.text,
+  //       userType: _selectedUserType!,
+  //     );
+  //   }
+  // }
+
+  void _submitRegister() {
     if (_formKey.currentState?.validate() ?? false) {
-      viewModel.register(
-        nome: _nameController.text,
-        email: _emailController.text,
-        password: _passwordController.text,
-        dob: _dateOfBirthController.text,
-        phone: _phoneController.text,
-        userType: _selectedUserType!,
-      );
+      print('Cadastro realizado com sucesso');
+      Navigator.pushReplacementNamed(context, '/login');
     }
   }
 
@@ -66,9 +73,9 @@ class _TelaCadastroState extends State<TelaCadastro> {
   Widget build(BuildContext context) {
     return Consumer<AuthViewModel>(
       builder: (context, viewModel, child) {
-        return Scaffold(
-          body: SafeArea(
-            child: Center(
+        return SafeArea(
+          child: Scaffold(
+            body: Center(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(24.0),
                 child: Form(
@@ -167,7 +174,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
                       const SizedBox(height: 32),
 
                       ElevatedButton(
-                        onPressed: () => _submitRegister(viewModel),
+                        onPressed: () => _submitRegister(),
                         child: const Text('Cadastrar'),
                       ),
                       const SizedBox(height: 16),

@@ -1,9 +1,7 @@
 // Importa o pacote principal do Flutter para usar os widgets do Material Design.
-import 'package:aurelia_app/data/model/contato.dart';
 import 'package:aurelia_app/ui/core/app_theme.dart';
 import 'package:aurelia_app/ui/view/tela_home.dart';
 import 'package:aurelia_app/ui/view/tela_contatos.dart';
-import 'package:aurelia_app/ui/view/tela_detalhes_contato.dart';
 import 'package:aurelia_app/ui/view/tela_lembretes.dart';
 // Importa os ViewModels para gerenciar o estado da aplicação.
 import 'package:aurelia_app/ui/view_model/auth_view_model.dart';
@@ -49,7 +47,6 @@ class MeuApp extends StatelessWidget {
           '/welcome': (context) => const TelaWelcome(),
           '/login': (context) => const TelaLogin(),
           '/cadastro': (context) => const TelaCadastro(),
-          
           '/home': (context) => const TelaHome(),
           '/contatos': (context) => const TelaContatos(),
           '/lembretes': (context) => const TelaLembretes(),

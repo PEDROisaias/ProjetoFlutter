@@ -8,9 +8,9 @@ class TelaWelcome extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -38,14 +38,14 @@ class TelaWelcome extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.restorablePushReplacementNamed(context, '/login');
-        },
-        backgroundColor: AppTheme.primaryColor,
-        elevation: 2.0,
-        child: const Icon(Icons.arrow_forward, color: AppTheme.lightColor),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.restorablePushReplacementNamed(context, '/home');
+          },
+          backgroundColor: AppTheme.primaryColor,
+          elevation: 2.0,
+          child: const Icon(Icons.arrow_forward, color: AppTheme.lightColor),
+        ),
       ),
     );
   }
